@@ -16,15 +16,17 @@ export class App extends Component {
   };
 
   addContact = contact => {
-    const isInContacts = this.state.contacts.some(
+    const isInContacts = this.state.contacts.find(
       ({ name }) => name.toLowerCase() === contact.name.toLowerCase()
     );
     if (isInContacts) {
       alert(`${contact.name} is already in contacts`);
       return;
     }
-    this.setState({
-      contacts: [...this.state.contacts, { ...contact, id: nanoid() }],
+    this.setState(prevState => {
+      return {
+        contacts: [...prevState.contacts, { ...contact, id: nanoid() }],
+      };
     });
   };
 
