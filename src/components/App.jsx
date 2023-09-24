@@ -46,7 +46,6 @@ export const App = () => {
 
   const onDeleteContact = contactId => {
     setContacts(prevState => prevState.filter(({ id }) => id !== contactId));
-    addContacts(contacts.filter(({ id }) => id !== contactId));
   };
   const visibleContacts = getVisibleContacts();
 
